@@ -12,7 +12,7 @@ source:
 
 build:
   number: 1000
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -66,3 +66,6 @@ about:
 extra:
   recipe-maintainers:
     - npavlovikj
+    - SylvainCorlay
+    - wolfv
+    - JohanMabille
