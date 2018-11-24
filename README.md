@@ -16,7 +16,7 @@ Current build status
 
 [![Linux](https://img.shields.io/circleci/project/github/conda-forge/ilmbase-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/ilmbase-feedstock)
 [![OSX](https://img.shields.io/travis/conda-forge/ilmbase-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/ilmbase-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/ilmbase-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/ilmbase-feedstock/branch/master)
 
 Current release info
 ====================

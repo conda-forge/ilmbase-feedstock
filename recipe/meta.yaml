@@ -12,48 +12,47 @@ source:
 
 build:
   number: 1000
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
+  run_exports:
+    # https\://abi-laboratory.pro/\?view\=timeline\&l\=ilmbase
+    - {{ pin_subpackage(name|lower, max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake  # [win]
-    - ninja  # [win]
 
   host:
     - zlib
 
-  run:
-    - zlib
-
 test:
   commands:
-    - test -f ${PREFIX}/include/OpenEXR/half.h                    # [unix]
-    - test -f ${PREFIX}/include/OpenEXR/IlmThread.h               # [unix]
-    - test -f ${PREFIX}/include/OpenEXR/ImathMath.h               # [unix]
-    - test -f ${PREFIX}/include/OpenEXR/Iex.h                     # [unix]
-    - test -f ${PREFIX}/include/OpenEXR/IexMathExc.h              # [unix]
-    - test -f ${PREFIX}/lib/libHalf.a                             # [unix]
-    - test -f ${PREFIX}/lib/libHalf${SHLIB_EXT}                   # [unix]
-    - test -f ${PREFIX}/lib/libIlmThread.a                        # [unix]
-    - test -f ${PREFIX}/lib/libIlmThread${SHLIB_EXT}              # [unix]
-    - test -f ${PREFIX}/lib/libImath.a                            # [unix]
-    - test -f ${PREFIX}/lib/libImath${SHLIB_EXT}                  # [unix]
-    - test -f ${PREFIX}/lib/libIex.a                              # [unix]
-    - test -f ${PREFIX}/lib/libIex${SHLIB_EXT}                    # [unix]
-    - test -f ${PREFIX}/lib/libIexMath.a                          # [unix]
-    - test -f ${PREFIX}/lib/libIexMath${SHLIB_EXT}                # [unix]
-    - if not exist %PREFIX%\include\OpenEXR\half.h  exit 1        # [win]
-    - if not exist %PREFIX%\include\OpenEXR\IlmThread.h  exit 1   # [win]
-    - if not exist %PREFIX%\include\OpenEXR\ImathMath.h  exit 1   # [win]
-    - if not exist %PREFIX%\include\OpenEXR\Iex.h  exit 1         # [win]
-    - if not exist %PREFIX%\include\OpenEXR\IexMathExc.h exit 1   # [win]
-    - if not exist %LIBRARY_PREFIX%\libHalf.lib  exit 1           # [win]
-    - if not exist %LIBRARY_PREFIX%\libIlmThread.lib  exit 1      # [win]
-    - if not exist %LIBRARY_PREFIX%\libImath.lib  exit 1          # [win]
-    - if not exist %LIBRARY_PREFIX%\libIex.lib  exit 1            # [win]
-    - if not exist %LIBRARY_PREFIX%\libIexMath.lib  exit 1        # [win]
+    - test -f ${PREFIX}/include/OpenEXR/half.h                            # [unix]
+    - test -f ${PREFIX}/include/OpenEXR/IlmThread.h                       # [unix]
+    - test -f ${PREFIX}/include/OpenEXR/ImathMath.h                       # [unix]
+    - test -f ${PREFIX}/include/OpenEXR/Iex.h                             # [unix]
+    - test -f ${PREFIX}/include/OpenEXR/IexMathExc.h                      # [unix]
+    - test -f ${PREFIX}/lib/libHalf.a                                     # [unix]
+    - test -f ${PREFIX}/lib/libHalf${SHLIB_EXT}                           # [unix]
+    - test -f ${PREFIX}/lib/libIlmThread.a                                # [unix]
+    - test -f ${PREFIX}/lib/libIlmThread${SHLIB_EXT}                      # [unix]
+    - test -f ${PREFIX}/lib/libImath.a                                    # [unix]
+    - test -f ${PREFIX}/lib/libImath${SHLIB_EXT}                          # [unix]
+    - test -f ${PREFIX}/lib/libIex.a                                      # [unix]
+    - test -f ${PREFIX}/lib/libIex${SHLIB_EXT}                            # [unix]
+    - test -f ${PREFIX}/lib/libIexMath.a                                  # [unix]
+    - test -f ${PREFIX}/lib/libIexMath${SHLIB_EXT}                        # [unix]
+    - if not exist %LIBRARY_PREFIX%\include\OpenEXR\half.h  exit 1        # [win]
+    - if not exist %LIBRARY_PREFIX%\include\OpenEXR\IlmThread.h  exit 1   # [win]
+    - if not exist %LIBRARY_PREFIX%\include\OpenEXR\ImathMath.h  exit 1   # [win]
+    - if not exist %LIBRARY_PREFIX%\include\OpenEXR\Iex.h  exit 1         # [win]
+    - if not exist %LIBRARY_PREFIX%\include\OpenEXR\IexMathExc.h exit 1   # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\Half.lib  exit 1                  # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\IlmThread.lib  exit 1             # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\Imath.lib  exit 1                 # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\Iex.lib  exit 1                   # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\IexMath.lib  exit 1               # [win]
 
 about:
   home: http://www.openexr.com/
@@ -66,3 +65,6 @@ about:
 extra:
   recipe-maintainers:
     - npavlovikj
+    - SylvainCorlay
+    - wolfv
+    - JohanMabille
