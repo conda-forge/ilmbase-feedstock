@@ -49,6 +49,7 @@ test:
     - if not exist %LIBRARY_PREFIX%\include\OpenEXR\Iex.h  exit 1         # [win]
     - if not exist %LIBRARY_PREFIX%\include\OpenEXR\IexMathExc.h exit 1   # [win]
     - if not exist %LIBRARY_PREFIX%\lib\Half.lib  exit 1                  # [win]
+    - if not exist %LIBRARY_PREFIX%\lib\Half_static.lib  exit 1           # [win]
     - if not exist %LIBRARY_PREFIX%\lib\IlmThread.lib  exit 1             # [win]
     - if not exist %LIBRARY_PREFIX%\lib\Imath.lib  exit 1                 # [win]
     - if not exist %LIBRARY_PREFIX%\lib\Iex.lib  exit 1                   # [win]
