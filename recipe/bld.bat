@@ -1,3 +1,4 @@
+cd IlmBase
 mkdir build
 cd build
 
