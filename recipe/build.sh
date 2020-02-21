@@ -1,9 +1,14 @@
 #!/bin/bash
+cd IlmBase
+mkdir build
+cd build
 
-./configure --prefix=${PREFIX} \
-            --host="${HOST}" \
-            --build="${BUILD}" \
-            --enable-cxxstd=11
+cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DBUILD_SHARED_LIBS=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DILMBASE_LIB_SUFFIX="" \
+      -DCMAKE_INSTALL_LIBDIR=lib \
+      ..
 
-make -j ${CPU_COUNT}
+make -j${CPU_COUNT}
 make install
