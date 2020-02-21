@@ -1,4 +1,5 @@
 #!/bin/bash
+cd IlmBase
 
 ./configure --prefix=${PREFIX} \
             --host="${HOST}" \
