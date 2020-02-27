@@ -69,6 +69,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-ilmbase-green.svg)](https://anaconda.org/conda-forge/ilmbase) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/ilmbase.svg)](https://anaconda.org/conda-forge/ilmbase) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/ilmbase.svg)](https://anaconda.org/conda-forge/ilmbase) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/ilmbase.svg)](https://anaconda.org/conda-forge/ilmbase) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-py--ilmbase-green.svg)](https://anaconda.org/conda-forge/py-ilmbase) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/py-ilmbase.svg)](https://anaconda.org/conda-forge/py-ilmbase) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/py-ilmbase.svg)](https://anaconda.org/conda-forge/py-ilmbase) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/py-ilmbase.svg)](https://anaconda.org/conda-forge/py-ilmbase) |
 
 Installing ilmbase
 ==================
@@ -79,10 +80,10 @@ Installing `ilmbase` from the `conda-forge` channel can be achieved by adding `c
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `ilmbase` can be installed with:
+Once the `conda-forge` channel has been enabled, `ilmbase, py-ilmbase` can be installed with:
 
 ```
-conda install ilmbase
+conda install ilmbase py-ilmbase
 ```
 
 It is possible to list all of the versions of `ilmbase` available on your platform with:
