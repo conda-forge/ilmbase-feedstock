@@ -1,10 +1,10 @@
 {% set name = "IlmBase" %}
-{% set version = "2.4.1" %}
-{% set sha256 = "3ebbe9a8e67edb4a25890b98c598e9fe23b10f96d1416d6a3ff0732e99d001c1" %}
+{% set version = "2.5.0" %}
+{% set sha256 = "ea1d786806045682461df1882dd36667d868bb7b41bb5307f8b87ff314328bcb" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://github.com/AcademySoftwareFoundation/openexr/archive/v{{ version }}.tar.gz
@@ -59,7 +59,7 @@ about:
   license: Modified BSD
   license_family: BSD
   license_file: LICENSE.md
-  summary: 'IlmBase libraries required for OpenEXR.'
+  summary: IlmBase libraries required for OpenEXR.
   doc_url: http://www.openexr.com/documentation.html
 
 extra:
