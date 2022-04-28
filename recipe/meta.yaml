@@ -1,6 +1,6 @@
 {% set name = "IlmBase" %}
-{% set version = "2.5.5" %}
-{% set sha256 = "59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3" %}
+{% set version = "3.1.5" %}
+{% set sha256 = "93925805c1fc4f8162b35f0ae109c4a75344e6decae5a240afdfce25f8a433ec" %}
 
 package:
   name: {{ name|lower }}
