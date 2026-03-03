@@ -20,6 +20,10 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - ninja
+  host:
+    - imath
+    - libdeflate
+    - zlib
   run_exports:
     # https://abi-laboratory.pro/\?view\=timeline\&l\=ilmbase
     - ${{ pin_subpackage(name, upper_bound='x.x') }}
@@ -27,17 +31,12 @@ requirements:
 tests:
   - package_contents:
       include:
-        - OpenEXR/half.h
         - OpenEXR/IlmThread.h
-        - OpenEXR/ImathMath.h
         - OpenEXR/Iex.h
         - OpenEXR/IexMathExc.h
       lib:
-        - Half
         - IlmThread
-        - Imath
         - Iex
-        - IexMath
 
 about:
   homepage: http://www.openexr.com/
