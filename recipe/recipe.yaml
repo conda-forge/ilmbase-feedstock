@@ -1,6 +1,6 @@
 context:
   name: ilmbase
-  version: "2.5.5"
+  version: "3.4.6"
 
 package:
   name: ${{ name }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/AcademySoftwareFoundation/openexr/archive/v${{ version }}.tar.gz
-  sha256: 59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3
+  sha256: f8cfe743a81c8cc1dd3cbaafa7fa76f75ad31456b0fc45a42b086d12530a4e35
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -20,6 +20,10 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - ninja
+  host:
+    - imath
+    - libdeflate
+    - zlib
   run_exports:
     # https://abi-laboratory.pro/\?view\=timeline\&l\=ilmbase
     - ${{ pin_subpackage(name, upper_bound='x.x') }}
@@ -27,17 +31,12 @@ requirements:
 tests:
   - package_contents:
       include:
-        - OpenEXR/half.h
         - OpenEXR/IlmThread.h
-        - OpenEXR/ImathMath.h
         - OpenEXR/Iex.h
         - OpenEXR/IexMathExc.h
       lib:
-        - Half
         - IlmThread
-        - Imath
         - Iex
-        - IexMath
 
 about:
   homepage: http://www.openexr.com/
