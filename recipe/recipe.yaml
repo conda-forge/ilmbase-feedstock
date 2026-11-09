@@ -1,17 +1,19 @@
 context:
-  name: ilmbase
-  version: "2.5.5"
+  # IlmBase ended at 2.5.x; OpenEXR 3.x is packaged by openexr and imath.
+  version: "2.5.10"
 
 package:
-  name: ${{ name }}
+  name: ilmbase
   version: ${{ version }}
 
 source:
   url: https://github.com/AcademySoftwareFoundation/openexr/archive/v${{ version }}.tar.gz
-  sha256: 59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3
+  sha256: c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48
+  patches:
+    - patches/0001-find-threads-dependency.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -21,8 +23,7 @@ requirements:
     - cmake
     - ninja
   run_exports:
-    # https://abi-laboratory.pro/\?view\=timeline\&l\=ilmbase
-    - ${{ pin_subpackage(name, upper_bound='x.x') }}
+    - ${{ pin_subpackage('ilmbase', upper_bound='x.x') }}
 
 tests:
   - package_contents:
@@ -38,13 +39,32 @@ tests:
         - Imath
         - Iex
         - IexMath
+      files:
+        - "**/lib/cmake/IlmBase/IlmBaseConfig.cmake"
+        - "**/lib/pkgconfig/IlmBase.pc"
+  - script:
+      - if: unix
+        then: cmake -S test -B build-test -G Ninja ${CMAKE_ARGS}
+        else: cmake -S test -B build-test -G Ninja %CMAKE_ARGS%
+      - cmake --build build-test
+      - ctest --test-dir build-test --output-on-failure
+    requirements:
+      build:
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - ninja
+    files:
+      recipe:
+        - test/
 
 about:
-  homepage: http://www.openexr.com/
+  homepage: https://openexr.com/
   license: BSD-3-Clause
   license_file: LICENSE.md
-  summary: IlmBase libraries required for OpenEXR.
-  documentation: http://www.openexr.com/documentation.html
+  summary: Legacy IlmBase libraries for OpenEXR 2.x.
+  documentation: https://openexr.com/en/latest/PortingGuide.html
+  repository: https://github.com/AcademySoftwareFoundation/openexr
 
 extra:
   recipe-maintainers:
