@@ -8,3 +8,7 @@ conda_build:
   pkg_format: '2'
 test: native_and_emulated
 conda_build_tool: rattler-build
+bot:
+  version_updates:
+    # IlmBase ended at 2.5.10; OpenEXR 3.x releases are not IlmBase updates.
+    skip: true
